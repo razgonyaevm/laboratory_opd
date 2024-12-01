@@ -104,13 +104,21 @@ cd ..
 
 ls -Rl 2>/dev/null | grep 1$ | sort -rnk 2
 
-find . -type f | grep -E "/m.*$" | xargs cat | sort
+for dir in . $(ls -R | grep ":$" | sed 's/:$//'); do
+for file in $(ls -p "$dir" | grep -v "/$"); do
+echo "$dir/$file" | grep -E "^.*/m[^/]*$" | xargs cat | sort
+done
+done
 
 cat seadra7 2> tmp/errors | grep on
 
-cat swinub1 2>> tmp/errors| grep -iv r$ | stat
+cat swinub1 2>> tmp/errors | grep -iv r$
 
-find . -type f | xargs grep -l she | xargs ls -l | sort -rnk 2
+for dir in . $(ls -R | grep ":$" | sed 's/:$//'); do
+for file in $(ls -p "$dir" | grep -v "/$"); do
+echo "$dir/$file" | xargs grep -l she | xargs ls -l | sort -rnk 2
+done
+done
 
 
 ----------
