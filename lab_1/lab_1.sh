@@ -102,7 +102,7 @@ cd fraxure4
 wc -m weedle octillery shelgon ../lileep6/seedot > ../tmp/file
 cd ..
 
-ls -Rl 2>/dev/null | grep 1$ | sort -rnk 2
+(ls -Rl | grep 1$ | sort -rnk 2) 2>/dev/null
 
 for dir in . $(ls -R | grep ":$" | sed 's/:$//'); do
 for file in $(ls -p "$dir" | grep -v "/$"); do
@@ -110,9 +110,9 @@ echo "$dir/$file" | grep -E "^.*/m[^/]*$" | xargs cat | sort
 done
 done
 
-cat seadra7 2> tmp/errors | grep on
+(cat seadra7 | grep on) 2> tmp/errors
 
-cat swinub1 2>> tmp/errors | grep -iv r$
+(cat swinub1 | grep -iv r$) 2>> tmp/errors
 
 for dir in . $(ls -R | grep ":$" | sed 's/:$//'); do
 for file in $(ls -p "$dir" | grep -v "/$"); do
