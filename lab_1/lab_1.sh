@@ -98,24 +98,36 @@ chmod u-r fraxure4/ivysaur
 
 mkdir tmp
 
+echo "Результат выполнения пункта номер 1 будет записан в файл /tmp/file"
+
 cd fraxure4
 wc -m weedle octillery shelgon ../lileep6/seedot > ../tmp/file
 cd ..
+echo -e "\n\n"
 
-(ls -Rl | grep 1$ | sort -rnk 2) 2>/dev/null
+echo "Пункт 2"
+(ls -Rl | grep 1$ | sort -rnk 2) 2> /dev/null
+echo -e "\n\n"
 
-for dir in . $(ls -R | grep ":$" | sed 's/:$//'); do
-for file in $(ls -p "$dir" | grep -v "/$"); do
+echo "Пункт 3"
+for dir in . $(ls -R | grep ":$"); do
+for file in $(echo "${dir//://}" | ls -p "$dir" | grep -v "/$"); do
 echo "$dir/$file" | grep -E "^.*/m[^/]*$" | xargs cat | sort
 done
 done
+echo -e "\n\n"
 
+echo "Пункт 4"
 (cat seadra7 | grep on) 2> tmp/errors
+echo -e "\n\n"
 
+echo "Пункт 5"
 (cat swinub1 | grep -iv r$) 2>> tmp/errors
+echo -e "\n\n"
 
-for dir in . $(ls -R | grep ":$" | sed 's/:$//'); do
-for file in $(ls -p "$dir" | grep -v "/$"); do
+echo "Пункт 6"
+for dir in . $(ls -R | grep ":$" ); do
+for file in $(echo "${dir//://}" | ls -p "$dir" | grep -v "/$"); do
 echo "$dir/$file" | xargs grep -l she | xargs ls -l | sort -rnk 2
 done
 done
