@@ -111,7 +111,7 @@ echo -e "\n\n"
 
 echo "Пункт 3"
 for dir in .$(ls -R | grep ":$"); do
-for file in $(echo "${dir//://}" | ls -p "$dir" | grep -v "/$"); do
+for file in $(echo "${dir//://}" | ls -p | grep -v "/$"); do
 echo "$dir/$file" | grep -E "^.*/m[^/]*$" | xargs cat | sort
 done
 done
@@ -127,7 +127,7 @@ echo -e "\n\n"
 
 echo "Пункт 6"
 for dir in .$(ls -R | grep ":$" ); do
-for file in $(echo "${dir//://}" | ls -p "$dir" | grep -v "/$"); do
+for file in $(echo "${dir//://}" | ls -p | grep -v "/$"); do
 echo "$dir/$file" | xargs grep -l she | xargs ls -l | sort -rnk 2
 done
 done
