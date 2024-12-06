@@ -104,22 +104,23 @@ cd ..
 
 (ls -Rl | grep 1$ | sort -rnk 2) 2>/dev/null
 
-for dir in . $(ls -R | grep ":$" | sed 's/:$//'); do
+for dir in . $(ls -R | grep ":$" | tr -d ':'); do
 for file in $(ls -p "$dir" | grep -v "/$"); do
-echo "$dir/$file" | grep -E "^.*/m[^/]*$" | xargs cat | sort
+echo "$dir/$file" | grep -E "^.*/m[^/]*$" | xargs -I{} cat "{}"| sort
 done
 done
+# альтернативная команда: ls -R | grep ':$' | tr -d ':' | xargs -I{} sh -c 'ls {}/m*' | xargs -I{} cat "{}" | sort
 
 (cat seadra7 | grep on) 2> tmp/errors
 
 (cat swinub1 | grep -iv r$) 2>> tmp/errors
 
-for dir in . $(ls -R | grep ":$" | sed 's/:$//'); do
+for dir in . $(ls -R | grep ":$" | tr -d ':'); do
 for file in $(ls -p "$dir" | grep -v "/$"); do
-echo "$dir/$file" | xargs grep -l she | xargs ls -l | sort -rnk 2
+echo "$dir/$file" | xargs -I{} grep -l she "{}" | xargs -I{} sh -c 'ls -l {}'| sort -rnk 2
 done
 done
-
+# альтернативная команда: ls -R | grep ':$' | tr -d ':' | xargs -I{} grep -l she "{}" | xargs -I{} sh -c 'ls -l {}'| sort -rnk 2
 
 ----------
 
