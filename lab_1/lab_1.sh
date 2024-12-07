@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Задание 1
 
 mkdir lab0
@@ -99,7 +97,7 @@ chmod u-r fraxure4/ivysaur
 mkdir tmp
 
 cd fraxure4
-wc -m weedle octillery shelgon ../lileep6/seedot > ../tmp/file
+wc -m weedle octillery shelgon ../lileep6/seedot | tail -n 1 | grep -v total > ../tmp/file
 cd ..
 
 (ls -Rl | grep 1$ | sort -rnk 2) 2>/dev/null
