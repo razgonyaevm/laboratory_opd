@@ -94,10 +94,8 @@ chmod u-r fraxure4/ivysaur
 
 # Задание 4
 
-mkdir tmp
-
 cd fraxure4
-wc -m weedle octillery shelgon ../lileep6/seedot | tail -n 1 | grep -v total > ../tmp/file
+wc -m weedle octillery shelgon ../lileep6/seedot | tail -n 1 | grep -v total > /tmp/s467211file
 cd ..
 
 (ls -Rl | grep 1$ | sort -rnk 2) 2>/dev/null
@@ -109,9 +107,9 @@ done
 done
 # альтернативная команда: ls -R | grep ':$' | tr -d ':' | xargs -I{} sh -c 'ls {}/m*' | xargs -I{} cat "{}" | sort
 
-(cat seadra7 | grep on) 2> tmp/errors
+(cat seadra7 | grep on) 2> /tmp/s467211errors
 
-(cat swinub1 | grep -iv r$) 2>> tmp/errors
+(cat swinub1 | grep -iv r$) 2>> /tmp/s467211errors
 
 for dir in . $(ls -R | grep ":$" | tr -d ':'); do
 for file in $(ls -p "$dir" | grep -v "/$"); do
